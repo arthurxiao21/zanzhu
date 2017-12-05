@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>注册页面---------校园赞助网</title>
+        <!--// Stylesheets //-->
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="css/red.css"
+              title="styles1" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="css/blue.css"
+              title="styles2" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="css/gray.css"
+              title="styles3" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="css/orange.css"
+              title="styles4" media="screen" />
+        <link rel="alternate stylesheet" type="text/css" href="css/green.css"
+              title="styles5" media="screen" />
+        <link rel="alternate stylesheet" type="text/css"
+              href="css/orange-red.css" title="styles6" media="screen" />
+        <!--// Javascripts //-->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/styleswitch.js"></script>
+        <script type="text/javascript" src="js/animatedcollapse.js"></script>
+        <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+        <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+        <script type="text/javascript" src="js/jquery.infinite-carousel.js"></script>
+        <script type="text/javascript" src="js/scrolltopcontrol.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+    </head>
+</head>
+<body>
+<div id="outer_wrapper">
+    <!-- Top Bar Start -->
+    <div id="top-bar" class="backcolr">
+        <div class="inner">
+            <!-- Styleswitcher Start -->
+            <div class="styles">
+                <ul>
+                    <li><h6 class="white">选择页面颜色</h6></li>
+                    <li><a href="index.html@style=style1" rel="styles1"
+                           class="styleswitch red">&nbsp;</a></li>
+                    <li><a href="index.html@style=style2" rel="styles2"
+                           class="styleswitch blue">&nbsp;</a></li>
+                    <li><a href="index.html@style=style3" rel="styles3"
+                           class="styleswitch gray">&nbsp;</a></li>
+                    <li><a href="index.html@style=style4" rel="styles4"
+                           class="styleswitch orange">&nbsp;</a></li>
+                    <li><a href="index.html@style=style5" rel="styles5"
+                           class="styleswitch green">&nbsp;</a></li>
+                    <li><a href="index.html@style=style6" rel="styles6"
+                           class="styleswitch orange-red">&nbsp;</a></li>
+                </ul>
+            </div>
+            <!-- Top Bar Text Start-->
+            <p class="text"></p>
+            <!--Top Bar Text End -->
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- Header Start -->
+    <div id="header">
+        <div class="rays">
+            <div class="inner">
+                <!-- Logo Start -->
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="" ></img></a>
+                </div>
+                <!-- Logo End -->
+                <div class="right">
+                    <!-- Navigation Start -->
+                    <div class="navigation">
+                        <div id="smoothmenu1" class="ddsmoothmenu">
+                            <ul>
+                                <li class="current-menu-item"><a href="./index">主页</a></li>
+                                <li><a href="./activity">社团活动</a></li>
+                                <li><a href="./sponsor">企业赞助</a></li>
+                                <li><a href="contact-us.html">联系我们</a></li>
+                                <li><a href="./login">登陆</a></li>
+                                <li><a href="./regester">注册</a></li>
+                                <li><a href="#">页面</a>
+                                    <ul class="backcolr">
+                                        <li><a href="./index">主页</a></li>
+                                        <li><a href="blog.html">社团活动</a></li>
+
+                                        <li><a href="sermons.html">企业赞助</a></li>
+
+                                        <li><a href="contact-us.html">联系我们</a></li>
+                                    </ul></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!-- Navigation End -->
+                    <!-- Search Start -->
+                    <div class="search">
+                        <a href="#" class="btn">&nbsp;</a>
+                        <div class="searchinputs backcolr">
+                            <ul>
+                                <li class="left"><input name="txtSearch" value="请输入搜索关键字"
+                                                        onfocus="if(this.value=='请输入搜索关键字') {this.value='';}"
+                                                        onblur="if(this.value=='') {this.value='请输入搜索关键字';}"
+                                                        type="text" /></li>
+                                <li class="right"><button class="colr">站内搜索</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Search End -->
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+    <!-- Content Start-->
+    <div id="registerForm">
+        <div id="dd_address">
+            <ul>
+                <li>
+                    <span class="line line_active2"></span>
+                    <span class="btn btn_active">1</span>
+                    <span class="line line_active1"></span>
+                </li>
+                <li>
+                    <span class="btn">2</span>
+                    <span class="line"></span>
+                </li>
+                <li class="last">
+                    <span class="btn">3</span>
+                    <span class="line"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="selectRole">
+               <p>你的身份是：</p>
+               <ul>
+                   <li><a href="./registerUnion">社团</a></li>
+                   <li><a href="./registerCompany">企业</a></li>
+               </ul>
+           </div>
+    </div>
+    <!-- Content End-->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,600 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>企业赞助信息-----校园赞助网</title>
+    <!--// Stylesheets //-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/red.css"
+          title="styles1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="css/blue.css"
+          title="styles2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="css/gray.css"
+          title="styles3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="css/orange.css"
+          title="styles4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="css/green.css"
+          title="styles5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css"
+          href="css/orange-red.css" title="styles6" media="screen" />
+    <!--// Javascripts //-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/styleswitch.js"></script>
+    <script type="text/javascript" src="js/animatedcollapse.js"></script>
+    <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript" src="js/jquery.infinite-carousel.js"></script>
+    <script type="text/javascript" src="js/scrolltopcontrol.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<!-- Wrapper Start -->
+<main id="outer_wrapper">
+    <!-- Top Bar Start -->
+    <div id="top-bar" class="backcolr">
+        <div class="inner">
+            <!-- Styleswitcher Start -->
+            <div class="styles">
+                <ul>
+                    <li><h6 class="white">选择页面颜色</h6></li>
+                    <li><a href="index.html@style=style1" rel="styles1"
+                           class="styleswitch red">&nbsp;</a></li>
+                    <li><a href="index.html@style=style2" rel="styles2"
+                           class="styleswitch blue">&nbsp;</a></li>
+                    <li><a href="index.html@style=style3" rel="styles3"
+                           class="styleswitch gray">&nbsp;</a></li>
+                    <li><a href="index.html@style=style4" rel="styles4"
+                           class="styleswitch orange">&nbsp;</a></li>
+                    <li><a href="index.html@style=style5" rel="styles5"
+                           class="styleswitch green">&nbsp;</a></li>
+                    <li><a href="index.html@style=style6" rel="styles6"
+                           class="styleswitch orange-red">&nbsp;</a></li>
+                </ul>
+            </div>
+            <!-- Top Bar Text Start-->
+            <p class="text"></p>
+            <!--Top Bar Text End -->
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- Top Bar End -->
+    <!-- Header Start -->
+    <div id="header">
+        <div class="rays">
+            <div class="inner">
+                <!-- Logo Start -->
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="" ></img></a>
+                </div>
+                <!-- Logo End -->
+                <div class="right">
+                    <!-- Navigation Start -->
+                    <div class="navigation">
+                        <div id="smoothmenu1" class="ddsmoothmenu">
+                            <ul>
+                                <li ><a href="./index">主页</a></li>
+                                <li><a href="./activity">社团活动</a></li>
+                                <li class="current-menu-item"><a href="./sponsor">企业赞助</a></li>
+                                <li><a href="contact-us.html">联系我们</a></li>
+                                <li><a href="./login">登陆</a></li>
+                                <li><a href="./register">注册</a></li>
+                                <li><a href="#">页面</a>
+                                    <ul class="backcolr">
+                                        <li><a href="index.html">主页</a></li>
+                                        <li><a href="blog.html">社团活动</a></li>
+
+                                        <li><a href="sermons.html">企业赞助</a></li>
+
+                                        <li><a href="contact-us.html">联系我们</a></li>
+                                    </ul></li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!-- Navigation End -->
+                    <!-- Search Start -->
+                    <div class="search">
+                        <a href="#" class="btn">&nbsp;</a>
+                        <div class="searchinputs backcolr">
+                            <ul>
+                                <li class="left"><input name="txtSearch" value="请输入搜索关键字"
+                                                        onfocus="if(this.value=='请输入搜索关键字') {this.value='';}"
+                                                        onblur="if(this.value=='') {this.value='请输入搜索关键字';}"
+                                                        type="text" /></li>
+                                <li class="right"><button class="colr">站内搜索</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Search End -->
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Main  Start -->
+    <main>
+        <!--筛选条件-->
+        <div class="help_sort main clearfix">
+            <p class="title">筛选条件</p>
+            <div class="sort_content">
+                <ul class="sort_list">
+                    <li class="clearfix">
+                        <dl class="provice">
+                            <dt class="fl"> 省份: </dt>
+                            <dd class="fl ">
+                                <a href="./sponsor/0-0-0-0.html">
+                                    不限
+                                </a>
+                            </dd>
+                            <dd class="fl first" id="pro">
+                                <a href="./sponsor/1-0-0-0.html">
+                                    北京		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/2-0-0-0.html">
+                                    天津		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/3-0-0-0.html">
+                                    河北		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/4-0-0-0.html">
+                                    山西		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/5-0-0-0.html">
+                                    内蒙古		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/6-0-0-0.html">
+                                    辽宁		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/7-0-0-0.html">
+                                    吉林		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/8-0-0-0.html">
+                                    黑龙江		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/9-0-0-0.html">
+                                    上海		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/10-0-0-0.html">
+                                    江苏		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/11-0-0-0.html">
+                                    浙江		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/12-0-0-0.html">
+                                    安徽		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/13-0-0-0.html">
+                                    福建		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/14-0-0-0.html">
+                                    江西		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/15-0-0-0.html">
+                                    山东		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/16-0-0-0.html">
+                                    河南		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/17-0-0-0.html">
+                                    湖北		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/18-0-0-0.html">
+                                    湖南		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/19-0-0-0.html">
+                                    广东		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/20-0-0-0.html">
+                                    广西		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/21-0-0-0.html">
+                                    海南		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/22-0-0-0.html">
+                                    重庆		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/23-0-0-0.html">
+                                    四川		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/24-0-0-0.html">
+                                    贵州		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/25-0-0-0.html">
+                                    云南		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/26-0-0-0.html">
+                                    西藏		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/27-0-0-0.html">
+                                    陕西		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/28-0-0-0.html">
+                                    甘肃		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/29-0-0-0.html">
+                                    青海		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/30-0-0-0.html">
+                                    宁夏		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/31-0-0-0.html">
+                                    新疆		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/32-0-0-0.html">
+                                    台湾		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/33-0-0-0.html">
+                                    香港		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/34-0-0-0.html">
+                                    澳门		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/35-0-0-0.html">
+                                    海外		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/36-0-0-0.html">
+                                    全国		                	</a>
+                            </dd>
+                            <dd class="fl " id="pro">
+                                <a href="./sponsor/45052-0-0-0.html">
+                                    其他		                	</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="clearfix">
+                        <dl class="cityList clearfix">
+
+                            <dd class="fl ">
+                                <a href="./sponsor/1-0-0-0.html">全部</a>
+                            </dd>
+                            <dd class="fl first">
+                                <a href="./sponsor/1-37-0-0.html">
+                                    东城区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-38-0-0.html">
+                                    西城区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-39-0-0.html">
+                                    崇文区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-40-0-0.html">
+                                    宣武区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-41-0-0.html">
+                                    朝阳区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-42-0-0.html">
+                                    丰台区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-43-0-0.html">
+                                    石景山区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-44-0-0.html">
+                                    海淀区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-45-0-0.html">
+                                    门头沟区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-46-0-0.html">
+                                    房山区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-47-0-0.html">
+                                    通州区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-48-0-0.html">
+                                    顺义区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-49-0-0.html">
+                                    昌平区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-50-0-0.html">
+                                    大兴区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-51-0-0.html">
+                                    怀柔区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-52-0-0.html">
+                                    平谷区                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-53-0-0.html">
+                                    密云县                                </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-54-0-0.html">
+                                    延庆县                                </a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="clearfix">
+                        <dl>
+                            <dt class="fl"> 类别: </dt>
+                            <dd class="fl first">
+                                <a href="./sponsor/1-37-0-0.html"> 不限 </a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-17-0.html">
+                                    文艺汇演		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-18-0.html">
+                                    体育竞技		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-19-0.html">
+                                    社会实践		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-21-0.html">
+                                    设计开发		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-22-0.html">
+                                    讲座论坛		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-23-0.html">
+                                    迎新招新		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-24-0.html">
+                                    演讲辩论		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-25-0.html">
+                                    创业营销		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-40-0.html">
+                                    晚会典礼		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-41-0.html">
+                                    传单派送		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-42-0.html">
+                                    高校推广		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-43-0.html">
+                                    影视音乐		            		</a>
+                            </dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-44-0.html">
+                                    其他		            		</a>
+                            </dd>
+                        </dl>
+                    </li>
+
+                    <li class="clearfix">
+                        <dl>
+                            <dt class="fl"> 预算: </dt>
+                            <dd class="fl first"><a href="./sponsor/1-37-0-0.html"> 不限 </a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-1.html">
+                                    500~1000            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-2.html">
+                                    1000~1500            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-3.html">
+                                    1500~2500            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-7.html">
+                                    2500~3500            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-8.html">
+                                    3500~5000            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-9.html">
+                                    5000~6500            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-10.html">
+                                    6500~8000            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-11.html">
+                                    8000~10000            		</a></dd>
+                            <dd class="fl ">
+                                <a href="./sponsor/1-37-0-12.html">
+                                    10000~100000            		</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>	
+        <div class="main_content main clearfix">
+        <!--content left-->
+        <div class="con_left fl">
+            <div class="container">
+                <p class="con_title">赞助列表</p>
+                <!-- 推荐活动 -->
+                <div class="recommend">
+                </div>
+
+                <div class="content_list_wrap">
+                    <div class="content_list">
+                        <div class="act_title">
+                            <a href="javascript:;" class="label">
+                                其他									</a>
+                            <a href="./sponsor/5585.html" class="activity" target="_blank">    长期赞助校园社团活动									</a>
+                            <a class="state">
+                                <span style="color:#56f291">火热申请中</span>									</a>
+                            <span class="price">
+										￥1000									</span>
+                        </div>
+                        <p class="act_detail">
+									<span>
+										地址：北京-东城区									</span>
+                            <span>
+										活动时间：2017-05-15~2022-06-09									</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pages main">
+                    <div>
+                        <div><span class="rows" style="display: inline-block;color:#666">共<b>1</b>条记录&nbsp;第<b>1</b>页/共<b>1</b>页</span></div>							</div>
+                </div>
+            </div>
+        </div>
+        <!--右边内容-->
+        <div class="con_right fr">
+            <!-- 热门赞助 -->
+            <div class="hot_surpt">
+                <p>热门赞助</p>
+                <ul class="hot_list">
+                    <li>
+                        <a href="./sponsor/5880.html" title="全国高校朋友圈转发" target="_blank">
+                            <span>1.</span>
+                            全国高校朋友圈转发								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/4399.html" title="赞助全国高校社团活动" target="_blank">
+                            <span>2.</span>
+                            赞助全国高校社团活动								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/6476.html" title="全国连锁企业长期赞助高校学生社团组织" target="_blank">
+                            <span>3.</span>
+                            全国连锁企业长期赞助高校学生社团组织								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/5228.html" title="千元赞助，可签合同。" target="_blank">
+                            <span>4.</span>
+                            千元赞助，可签合同。								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/6464.html" title="以纯A21高校活动赞助" target="_blank">
+                            <span>5.</span>
+                            以纯A21高校活动赞助								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/6305.html" title="扫码关注公众号并分享" target="_blank">
+                            <span>6.</span>
+                            扫码关注公众号并分享								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/4484.html" title="【APP下载推广】全国社团最大赞助" target="_blank">
+                            <span>7.</span>
+                            【APP下载推广】全国社团最大赞助								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/5701.html" title="长期全国高校赞助" target="_blank">
+                            <span>8.</span>
+                            长期全国高校赞助								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/6564.html" title="全国高校朋友圈转发，针对大学生公众号的推文" target="_blank">
+                            <span>9.</span>
+                            全国高校朋友圈转发，针对大学生公众号的推文								</a>
+                    </li>
+                    <li>
+                        <a href="./sponsor/3263.html" title="为广东所有高校提供赞助" target="_blank">
+                            <span>10.</span>
+                            为广东所有高校提供赞助								</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+    </div>
+    </main>
+    <!-- Main End -->
+    <!-- Footer Start -->
+    <div id="footer">
+        <div class="footer-rays">
+            <div class="inner">
+                <!-- Footer Logo - Navigation - Copyrights Start -->
+                <div class="foot-navi-coopyrights">
+                    <div class="footlogo-nav">
+
+                        <!-- Footer Navigation Start -->
+                        <div class="footnav">
+                            <ul>
+                                <li><a href="#">主页</a></li>
+                                <li><a href="#">社团活动</a></li>
+                                <li><a href="#">企业赞助</a></li>
+                                <li><a href="#">联系我们</a></li>
+                                <li><a href="#">登陆</a></li>
+                                <li><a href="#">注册</a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Navigation End -->
+                    </div>
+                    <!-- Footer Copyrights Start -->
+                    <p class="copyrights"></p>
+                    <!-- Footer Copyrights End -->
+                </div>
+                <!-- Footer Logo - Navigation - Copyrights End -->
+                <!-- Follow Us - Go to Top Start -->
+                <div class="followus">
+                    <!-- Go to Top Start -->
+                    <div class="gotop">
+                        <a href="#top">&nbsp;</a> <span>Back to Top</span>
+                    </div>
+
+                </div>
+                <!-- Follow Us - Go to Top End -->
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+<!-- Wrapper End -->
+</main>
+</body>
+</html>
