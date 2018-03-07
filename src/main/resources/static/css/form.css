@@ -1,0 +1,28 @@
+
+.form_wrapper{
+    margin:0px auto;
+    width:875px;
+    font-size: 14px;
+    border: 2px solid #ddd;
+    border-top: 4px solid #a91d3b;
+    height: 1000px;
+}
+.form_box_top{
+    height:38px;
+    line-height: 38px;
+    background: #deebf1;
+    font-size:18px;
+    color:#1c384e;
+}
+.form_title_wrapper{
+    background:#fff;
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding:0px 20px;
+    cursor:pointer;
+}
+.form{
+    width: 80%;
+    margin: 0px auto;
+}

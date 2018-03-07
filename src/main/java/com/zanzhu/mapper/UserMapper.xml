@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zanzhu.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.zanzhu.pojo.User">
+		<id column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="avatar" property="avatar" jdbcType="VARCHAR" />
+		<result column="user_password" property="userPassword"
+			jdbcType="VARCHAR" />
+		<result column="user_role" property="userRole" jdbcType="CHAR" />
+		<result column="contact_name" property="contactName" jdbcType="VARCHAR" />
+		<result column="contact_email" property="contactEmail"
+			jdbcType="VARCHAR" />
+		<result column="contact_phone" property="contactPhone"
+			jdbcType="VARCHAR" />
+		<result column="contact_sex" property="contactSex" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		user_id, avatar, user_password, user_role, contact_name, contact_email,
+		contact_phone,
+		contact_sex
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="com.zanzhu.pojo.UserExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where user_id = #{userId,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from user
+		where user_id = #{userId,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteByExample" parameterType="com.zanzhu.pojo.UserExample">
+		delete from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.zanzhu.pojo.User">
+		insert into user (user_id, avatar, user_password,
+		user_role, contact_name, contact_email,
+		contact_phone, contact_sex)
+		values (#{userId,jdbcType=INTEGER}, #{avatar,jdbcType=VARCHAR},
+		#{userPassword,jdbcType=VARCHAR},
+		#{userRole,jdbcType=CHAR}, #{contactName,jdbcType=VARCHAR}, #{contactEmail,jdbcType=VARCHAR},
+		#{contactPhone,jdbcType=VARCHAR}, #{contactSex,jdbcType=CHAR})
+	</insert>
+	<insert id="insertAndGetID" parameterType="com.zanzhu.pojo.User">
+		<selectKey resultType="java.lang.Integer" order="AFTER"
+			keyProperty="userId">
+			SELECT last_insert_id()
+		</selectKey>
+		insert into user (user_id, avatar, user_password,
+		user_role, contact_name, contact_email,
+		contact_phone, contact_sex)
+		values (#{userId,jdbcType=INTEGER}, #{avatar,jdbcType=VARCHAR},
+		#{userPassword,jdbcType=VARCHAR},
+		#{userRole,jdbcType=CHAR}, #{contactName,jdbcType=VARCHAR}, #{contactEmail,jdbcType=VARCHAR},
+		#{contactPhone,jdbcType=VARCHAR}, #{contactSex,jdbcType=CHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.zanzhu.pojo.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="avatar != null">
+				avatar,
+			</if>
+			<if test="userPassword != null">
+				user_password,
+			</if>
+			<if test="userRole != null">
+				user_role,
+			</if>
+			<if test="contactName != null">
+				contact_name,
+			</if>
+			<if test="contactEmail != null">
+				contact_email,
+			</if>
+			<if test="contactPhone != null">
+				contact_phone,
+			</if>
+			<if test="contactSex != null">
+				contact_sex,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="avatar != null">
+				#{avatar,jdbcType=VARCHAR},
+			</if>
+			<if test="userPassword != null">
+				#{userPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="userRole != null">
+				#{userRole,jdbcType=CHAR},
+			</if>
+			<if test="contactName != null">
+				#{contactName,jdbcType=VARCHAR},
+			</if>
+			<if test="contactEmail != null">
+				#{contactEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="contactPhone != null">
+				#{contactPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="contactSex != null">
+				#{contactSex,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.zanzhu.pojo.UserExample"
+		resultType="java.lang.Integer">
+		select count(*) from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update user
+		<set>
+			<if test="record.userId != null">
+				user_id = #{record.userId,jdbcType=INTEGER},
+			</if>
+			<if test="record.avatar != null">
+				avatar = #{record.avatar,jdbcType=VARCHAR},
+			</if>
+			<if test="record.userPassword != null">
+				user_password = #{record.userPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="record.userRole != null">
+				user_role = #{record.userRole,jdbcType=CHAR},
+			</if>
+			<if test="record.contactName != null">
+				contact_name = #{record.contactName,jdbcType=VARCHAR},
+			</if>
+			<if test="record.contactEmail != null">
+				contact_email = #{record.contactEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="record.contactPhone != null">
+				contact_phone = #{record.contactPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="record.contactSex != null">
+				contact_sex = #{record.contactSex,jdbcType=CHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update user
+		set user_id = #{record.userId,jdbcType=INTEGER},
+		avatar = #{record.avatar,jdbcType=VARCHAR},
+		user_password = #{record.userPassword,jdbcType=VARCHAR},
+		user_role = #{record.userRole,jdbcType=CHAR},
+		contact_name = #{record.contactName,jdbcType=VARCHAR},
+		contact_email = #{record.contactEmail,jdbcType=VARCHAR},
+		contact_phone = #{record.contactPhone,jdbcType=VARCHAR},
+		contact_sex = #{record.contactSex,jdbcType=CHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.zanzhu.pojo.User">
+		update user
+		<set>
+			<if test="avatar != null">
+				avatar = #{avatar,jdbcType=VARCHAR},
+			</if>
+			<if test="userPassword != null">
+				user_password = #{userPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="userRole != null">
+				user_role = #{userRole,jdbcType=CHAR},
+			</if>
+			<if test="contactName != null">
+				contact_name = #{contactName,jdbcType=VARCHAR},
+			</if>
+			<if test="contactEmail != null">
+				contact_email = #{contactEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="contactPhone != null">
+				contact_phone = #{contactPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="contactSex != null">
+				contact_sex = #{contactSex,jdbcType=CHAR},
+			</if>
+		</set>
+		where user_id = #{userId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.zanzhu.pojo.User">
+		update user
+		set avatar = #{avatar,jdbcType=VARCHAR},
+		user_password = #{userPassword,jdbcType=VARCHAR},
+		user_role = #{userRole,jdbcType=CHAR},
+		contact_name = #{contactName,jdbcType=VARCHAR},
+		contact_email = #{contactEmail,jdbcType=VARCHAR},
+		contact_phone = #{contactPhone,jdbcType=VARCHAR},
+		contact_sex = #{contactSex,jdbcType=CHAR}
+		where user_id = #{userId,jdbcType=INTEGER}
+	</update>
+</mapper>

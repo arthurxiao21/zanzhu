@@ -1,386 +1,192 @@
-﻿
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>首页--------校园赞助网</title>
-    <!--// Stylesheets //-->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/red.css"
-          title="styles1" media="screen" />
-    <link rel="alternate stylesheet" type="text/css" href="css/blue.css"
-          title="styles2" media="screen" />
-    <link rel="alternate stylesheet" type="text/css" href="css/gray.css"
-          title="styles3" media="screen" />
-    <link rel="alternate stylesheet" type="text/css" href="css/orange.css"
-          title="styles4" media="screen" />
-    <link rel="alternate stylesheet" type="text/css" href="css/green.css"
-          title="styles5" media="screen" />
-    <link rel="alternate stylesheet" type="text/css"
-          href="css/orange-red.css" title="styles6" media="screen" />
-    <!--// Javascripts //-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/styleswitch.js"></script>
-    <script type="text/javascript" src="js/animatedcollapse.js"></script>
-    <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
-    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
-    <script type="text/javascript" src="js/jquery.infinite-carousel.js"></script>
-    <script type="text/javascript" src="js/scrolltopcontrol.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>首页-赞助信息网</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/styletest.css" rel="stylesheet" type="text/css">
+<link href="css/header.css" rel="stylesheet" type="text/css">
+<link href="css/footer.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
-<!-- Wrapper Start -->
-<div id="outer_wrapper">
-    <!-- Top Bar Start -->
-    <div id="top-bar" class="backcolr">
-        <div class="inner">
-            <!-- Styleswitcher Start -->
-            <div class="styles">
-                <ul>
-                    <li><h6 class="white">选择页面颜色</h6></li>
-                    <li><a href="index.html@style=style1" rel="styles1"
-                           class="styleswitch red">&nbsp;</a></li>
-                    <li><a href="index.html@style=style2" rel="styles2"
-                           class="styleswitch blue">&nbsp;</a></li>
-                    <li><a href="index.html@style=style3" rel="styles3"
-                           class="styleswitch gray">&nbsp;</a></li>
-                    <li><a href="index.html@style=style4" rel="styles4"
-                           class="styleswitch orange">&nbsp;</a></li>
-                    <li><a href="index.html@style=style5" rel="styles5"
-                           class="styleswitch green">&nbsp;</a></li>
-                    <li><a href="index.html@style=style6" rel="styles6"
-                           class="styleswitch orange-red">&nbsp;</a></li>
-                </ul>
-            </div>
-            <!-- Top Bar Text Start-->
-            <p class="text"></p>
-            <!--Top Bar Text End -->
-        </div>
-        <div class="clear"></div>
-        <!-- Toggle Show Hide Div End -->
-    </div>
-    <!-- Top Bar End -->
-    <!-- Header Start -->
-    <div id="header">
-        <div class="rays">
-            <div class="inner">
-                <!-- Logo Start -->
-                <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" alt="" ></img></a>
-                </div>
-                <!-- Logo End -->
-                <div class="right">
-                    <!-- Navigation Start -->
-                    <div class="navigation">
-                        <div id="smoothmenu1" class="ddsmoothmenu">
-                            <ul>
-                                <li class="current-menu-item"><a href="index.html">主页</a></li>
-                                <li><a href="./sponsor">社团活动</a></li>
-                                <li><a href="./activity">企业赞助</a></li>
-                                <li><a href="contact-us.html">联系我们</a></li>
-                                <li><a href="login.html">登陆</a></li>
-                                <li><a href="./register">注册</a></li>
-                                <li><a href="#">页面</a>
-                                    <ul class="backcolr">
-                                        <li><a href="index.html">主页</a></li>
-                                        <li><a href="blog.html">社团活动</a></li>
+	<script src="js/jquery-2.1.3.min.js" type="application/javascript"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js" type="application/javascript"></script>
+	<div id="out_wrapper">
+		<!--导航栏-->
+		<div th:include="navi::navi"></div>
 
-                                        <li><a href="sermons.html">企业赞助</a></li>
+		<!--轮播图-->
+		<div id="bannner">
+			<div id="myCarousel" class="carousel slide">
+				<!-- 轮播（Carousel）指标 -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
+				<!-- 轮播（Carousel）项目 -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="images/hd1_1200x300.png" alt="First slide">
+					</div>
+					<div class="item">
+						<img src="images/hd2_1200x300.png" alt="Second slide">
+					</div>
+					<div class="item">
+						<img src="images/hd3_1200x300.png" alt="Third slide">
+					</div>
+				</div>
+				<!-- 轮播（Carousel）导航 -->
+				<a class="carousel-control left" href="#myCarousel"
+					data-slide="prev">&lsaquo; </a> <a class="carousel-control right"
+					href="#myCarousel" data-slide="next">&rsaquo; </a>
+			</div>
+		</div>
+		<!--内容-->
+		<div class="content">
+			<div class="container"
+				style="margin-top: 10px; border: 1px solid #d7d0d0; background: #ffffff">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4"
+						style="border-right: 1px solid #d7d0d0">
+						<h3 class="widget-head">最新活动</h3>
+						<h4 class="colr">杭州电子科技大学社团联合会迎新晚会</h4>
+						<p>杭电社联是杭州电子科技大学八大校级社团之一，广受杭电师生的关注与支持，在校团委的领导与支持下，该社团组织成功了大量优秀的活动。</p>
+						<blockquote>
+							<p class="italic">本次杭州电子科技大学社团联合会迎新晚会将于11月11日于杭电剧院举办，现通过我平台向广大支持学生活动的社会企业寻求赞助。</p>
+						</blockquote>
+						<a href="#" type="button" class="btn btn-danger">了解详情</a>
+						<div class="clear"></div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4"
+						style="border-right: 1px solid #d7d0d0">
+						<div class="widget wp-calendar">
+							<h3 class="widget-head">赞助日历</h3>
+							<div class="calendar">
+								<ul class="months backcolr">
+									<li><a href="#" class="calendar-prev">&nbsp;</a></li>
+									<li><h4 class="white">November 2017</h4></li>
+									<li><a href="#" class="calendar-next">&nbsp;</a></li>
+								</ul>
+								<ul class="days">
+									<li>Sun</li>
+									<li>Mon</li>
+									<li>Tue</li>
+									<li>Wed</li>
+									<li>Thu</li>
+									<li>Fri</li>
+									<li>Sat</li>
+								</ul>
+								<ul class="dates">
+									<li class="disabled"><a href="#" class="ev-date">29</a></li>
+									<li class="disabled"><a href="#">30</a></li>
+									<li class="disabled"><a href="#">31</a></li>
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#" class="ev-date">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+									<li><a href="#" class="ev-date">10</a></li>
+									<li><a href="#" class="ev-date">11</a></li>
+									<li><a href="#" class="ev-date">12</a></li>
+									<li><a href="#">13</a></li>
+									<li><a href="#">14</a></li>
+									<li><a href="#">15</a></li>
+									<li><a href="#">16</a></li>
+									<li><a href="#">17</a></li>
+									<li><a href="#" class="ev-date">18</a></li>
+									<li><a href="#">19</a></li>
+									<li><a href="#">20</a></li>
+									<li><a href="#" class="ev-date">21</a></li>
+									<li><a href="#">22</a></li>
+									<li><a href="#" class="ev-date">23</a></li>
+									<li><a href="#">24</a></li>
+									<li><a href="#">25</a></li>
+									<li><a href="#">26</a></li>
+									<li><a href="#">27</a></li>
+									<li><a href="#">28</a></li>
+									<li><a href="#">29</a></li>
+									<li><a href="#">30</a></li>
+									<li><a href="#">31</a></li>
+									<li class="disabled"><a href="#">1</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<h3 class="widget-head">已促成赞助金额</h3>
+						<div
+							style="width: 250px; margin-top: 100px; background-color: #f5f5f5">
+							<h1 class="colr" style="font-size: 50px; margin: 0px auto">¥14,856</h1>
+						</div>
+					</div>
+				</div>
 
-                                        <li><a href="contact-us.html">联系我们</a></li>
-                                    </ul></li>
-                            </ul>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <!-- Navigation End -->
-                    <!-- Search Start -->
-                    <div class="search">
-                        <a href="#" class="btn">&nbsp;</a>
-                        <div class="searchinputs backcolr">
-                            <ul>
-                                <li class="left"><input name="txtSearch" value="请输入搜索关键字"
-                                                        onfocus="if(this.value=='请输入搜索关键字') {this.value='';}"
-                                                        onblur="if(this.value=='') {this.value='请输入搜索关键字';}"
-                                                        type="text" /></li>
-                                <li class="right"><button class="colr">站内搜索</button></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Search End -->
-                    <div class="clear"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
-    <!-- Banner Start -->
-    <div id="banner">
-        <div class="slider-wrapper theme-default">
-            <div id="slider" class="nivoSlider">
-                <a href="#"><img src="images/hd1.jpg" title="#banner1" alt="" ></img></a>
-                <a href="#"><img src="images/hd2.jpg" title="#banner2" alt="" ></img></a>
-                <a href="#"><img src="images/hd3.jpg" title="#banner3" alt="" ></img></a>
-            </div>
+			</div>
+		</div>
+		<div class="container"
+			style="margin-top: 10px; border: 1px solid #d7d0d0; background: #ffffff">
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-8"
+					style="border-right: 1px solid #d7d0d0">
+					校园资讯
+					<div>
+						<img src="images/xyzx.jpg" alt=" "></img>
+					</div>
+					<div>
+						<ul>
+							<li>华为公司将进入杭州电子科技大学创建“华为俱乐部”</li>
+							<li>浙江大学在第XX届国际大学生机器人竞赛中获得二等奖</li>
+							<li>资深上市公司公关经理教你如何做校园公关</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class="toubu">
+						<h3 class="colr">已经入驻的校园社团</h3>
 
-        </div>
-    </div>
-    <!-- Banner End -->
-    <!-- Content Section Start -->
-    <div id="contentsec">
-        <div class="inner">
-            <!-- Fullwidth Box Start -->
-            <div class="fullwidth box left">
-                <div class="widgets-area-conts">
-                    <!-- Widget PlaceHolder Start -->
-                    <div class="widget-placeholder">
-                        <!-- Text Widget Start -->
-                        <div class="widget textwidget">
-                            <h3 class="widget-head">最新活动</h3>
-                            <h4 class="colr">杭州电子科技大学社团联合会迎新晚会</h4>
-                            <p>杭电社联是杭州电子科技大学八大校级社团之一，广受杭电师生的关注与支持，在校团委的领导与支持下，该社团组织成功了大量优秀的活动。</p>
-                            <blockquote>
-                                <p class="italic">本次杭州电子科技大学社团联合会迎新晚会将于11月11日于杭电剧院举办，现通过我平台向广大支持学生活动的社会企业寻求赞助。</p>
-                            </blockquote>
-                            <a href="#" class="buttonone">了解详情</a>
-                            <div class="clear"></div>
-                        </div>
-                        <!-- Text Widget End -->
-                    </div>
-                    <!-- Widget PlaceHolder End -->
-                    <!-- Widget PlaceHolder Start -->
-                    <div class="widget-placeholder">
-                        <!-- Calendar Widget Start -->
-                        <div class="widget wp-calendar">
-                            <h3 class="widget-head">赞助日历</h3>
-                            <div class="calendar">
-                                <ul class="months backcolr">
-                                    <li><a href="#" class="calendar-prev">&nbsp;</a></li>
-                                    <li><h4 class="white">November 2017</h4></li>
-                                    <li><a href="#" class="calendar-next">&nbsp;</a></li>
-                                </ul>
-                                <ul class="days">
-                                    <li>Sun</li>
-                                    <li>Mon</li>
-                                    <li>Tue</li>
-                                    <li>Wed</li>
-                                    <li>Thu</li>
-                                    <li>Fri</li>
-                                    <li>Sat</li>
-                                </ul>
-                                <ul class="dates">
-                                    <li class="disabled"><a href="#" class="ev-date">29</a></li>
-                                    <li class="disabled"><a href="#">30</a></li>
-                                    <li class="disabled"><a href="#">31</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">6</a></li>
-                                    <li><a href="#" class="ev-date">7</a></li>
-                                    <li><a href="#">8</a></li>
-                                    <li><a href="#">9</a></li>
-                                    <li><a href="#" class="ev-date">10</a></li>
-                                    <li><a href="#" class="ev-date">11</a></li>
-                                    <li><a href="#" class="ev-date">12</a></li>
-                                    <li><a href="#">13</a></li>
-                                    <li><a href="#">14</a></li>
-                                    <li><a href="#">15</a></li>
-                                    <li><a href="#">16</a></li>
-                                    <li><a href="#">17</a></li>
-                                    <li><a href="#" class="ev-date">18</a></li>
-                                    <li><a href="#">19</a></li>
-                                    <li><a href="#">20</a></li>
-                                    <li><a href="#" class="ev-date">21</a></li>
-                                    <li><a href="#">22</a></li>
-                                    <li><a href="#" class="ev-date">23</a></li>
-                                    <li><a href="#">24</a></li>
-                                    <li><a href="#">25</a></li>
-                                    <li><a href="#">26</a></li>
-                                    <li><a href="#">27</a></li>
-                                    <li><a href="#">28</a></li>
-                                    <li><a href="#">29</a></li>
-                                    <li><a href="#">30</a></li>
-                                    <li><a href="#">31</a></li>
-                                    <li class="disabled"><a href="#">1</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Calendar Widget End -->
-                    </div>
-                    <!-- Widget PlaceHolder End -->
-                    <!-- Widget PlaceHolder Start -->
-                    <div class="widget-placeholder">
-                        <!-- Donation Widget Start -->
-                        <div class="widget donation">
-                            <h3 class="widget-head">我们已经促成的赞助总金额</h3>
-                            <div class="donation-area">
-                                <div class="xifen">
-                                    <h1 class="colr" style="font-size: 50px;float: none" >¥14,856</h1>
-                                </div>
-
-
-                            </div>
-                            <!--<a href="#" class="buttonone">了解更多我们</a>-->
-                        </div>
-                        <!-- Calendar Widget End -->
-                    </div>
-                    <!-- Widget PlaceHolder End -->
-                </div>
-            </div>
-            <!-- Fullwidth Box End -->
-            <!-- Two Third Box Start -->
-            <div class="twothird box padbox left">
-                <h1 class="colr">校园资讯</h1>
-                <div class="charutitu" style="padding: 20px 5px 30px;float: left">
-                    <img src="images/xyzx.jpg" alt=" "></img>
-                </div>
-                <div class="liebiao" style="padding: 0px 0px 30px 20px">
-                    <ul>
-                        <li style="padding: 2px 0px 2px"><h2>
-                            华为公司将进入杭州电子科技大学创建“华为俱乐部”</h2></li>
-                        <li style="padding: 2px 0px 2px"><h2>
-                            浙江大学在第XX届国际大学生机器人竞赛中获得二等奖</h2></li>
-                        <li style="padding: 2px 0px 2px"><h2>
-                            资深上市公司公关经理教你如何做校园公关</h2></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Home Page Post End -->
-
-            <!-- Half Box End -->
-
-            <!-- Two Third Box End -->
-            <!-- One Third Box Start -->
-            <div class="onethird right">
-                <!-- One Third Box Start -->
-                <div class="onethird box left">
-                    <!-- Upcoming Widget Start -->
-                    <div class="widget upcoming-events">
-                        <h3 class="widget-head-border colr">最近达成的合作</h3>
-                        <ul>
-                            <li>
-                                <div class="date">
-                                    <span>01</span> <span>NOV</span>
-                                </div>
-                                <div class="desc">
-                                    <a href="#" class="title txthover">杭州电子科技大学社团联合会迎新晚会</a>
-                                    <p class="time">7:00 PM - 10:00 PM</p>
-                                    <p class="location">地址: 浙江省杭州下沙杭州电子科技大学</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="date">
-                                    <span>05</span> <span>NOV</span>
-                                </div>
-                                <div class="desc">
-                                    <a href="#" class="title txthover">浙江理工大学校学生会晚会</a>
-                                    <p class="time">7:00 PM - 10:00 PM</p>
-                                    <p class="location">地址：浙江省杭州市下沙浙江理工大学</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="date">
-                                    <span>08</span> <span>NOV</span>
-                                </div>
-                                <div class="desc">
-                                    <a href="#" class="title txthover">武汉大学机械工程学院“绽放”晚会</a>
-                                    <p class="time">7:00 PM - 10:00 PM</p>
-                                    <p class="location">地址：湖北省武汉市武昌区珞珈山路武汉大学</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Upcoming Widget End -->
-                </div>
-                <!-- One Third Box End -->
-                <!-- One Third Box Start -->
-                <div class="onethird box left">
-                    <!-- Facebook Widget Start -->
-                    <div class="widget facebook-widget">
-                        <div class="toubu">
-                            <h1 class="colr">已经入驻的校园社团</h1>
-
-                            <ul>
-                                <li>
-                                    <div class="tubiao">
-                                        <img src="images/logo2222.jpg" alt=" "></img>
-                                    </div>
-                                    <div class="shetuanmin" style="color: #1f2020">武汉大学学生会</div>
-                                </li>
-                                <li>
-                                    <div class="tubiao">
-                                        <img src="images/logo2222.jpg" alt=" "></img>
-                                    </div>
-                                    <div class="shetuanmin" style="color: #1f2020">杭州电子科技大学校学生会</div>
-                                </li>
-                                <li>
-                                    <div class="tubiao">
-                                        <img src="images/logo2222.jpg" alt=" "></img>
-                                    </div>
-                                    <div class="shetuanmin" style="color: #1f2020">杭州电子科技大学社团联合会</div>
-                                </li>
-                                <li>
-                                    <div class="tubiao">
-                                        <img src="images/logo2222.jpg" alt=" "></img>
-                                    </div>
-                                    <div class="shetuanmin" style="color: #1f2020">浙江理工大学研究生院</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Facebook Widget Start -->
-                </div>
-                <!-- One Third Box End -->
-            </div>
-
-        </div>
-    </div>
-    <!-- Content Section End -->
-    <!-- Footer Start -->
-    <div id="footer">
-        <div class="footer-rays">
-            <div class="inner">
-                <!-- Footer Logo - Navigation - Copyrights Start -->
-                <div class="foot-navi-coopyrights">
-                    <div class="footlogo-nav">
-
-                        <!-- Footer Navigation Start -->
-                        <div class="footnav">
-                            <ul>
-                                <li><a href="#">主页</a></li>
-                                <li><a href="#">社团活动</a></li>
-                                <li><a href="#">企业赞助</a></li>
-                                <li><a href="#">联系我们</a></li>
-                                <li><a href="#">登陆</a></li>
-                                <li><a href="#">注册</a></li>
-                            </ul>
-                        </div>
-                        <!-- Footer Navigation End -->
-                    </div>
-                    <!-- Footer Copyrights Start -->
-                    <p class="copyrights"></p>
-                    <!-- Footer Copyrights End -->
-                </div>
-                <!-- Footer Logo - Navigation - Copyrights End -->
-                <!-- Follow Us - Go to Top Start -->
-                <div class="followus">
-                    <!-- Go to Top Start -->
-                    <div class="gotop">
-                        <a href="#top">&nbsp;</a> <span>Back to Top</span>
-                    </div>
-
-                </div>
-                <!-- Follow Us - Go to Top End -->
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+						<ul>
+							<li>
+								<div class="tubiao">
+									<img src="images/logo2222.jpg" alt=" "></img>
+								</div>
+								<div class="shetuanmin">武汉大学学生会</div>
+							</li>
+							<li>
+								<div class="tubiao">
+									<img src="images/logo2222.jpg" alt=" "></img>
+								</div>
+								<div class="shetuanmin">杭州电子科技大学校学生会</div>
+							</li>
+							<li>
+								<div class="tubiao">
+									<img src="images/logo2222.jpg" alt=" "></img>
+								</div>
+								<div class="shetuanmin">杭州电子科技大学社团联合会</div>
+							</li>
+							<li>
+								<div class="tubiao">
+									<img src="images/logo2222.jpg" alt=" "></img>
+								</div>
+								<div class="shetuanmin">浙江理工大学研究生院</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+<div th:include="footer::#footer" id="footer">
 </div>
-<!-- Wrapper End -->
+
 </body>
 </html>

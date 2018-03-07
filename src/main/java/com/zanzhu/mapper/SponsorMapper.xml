@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zanzhu.mapper.SponsorMapper" >
+  <resultMap id="BaseResultMap" type="com.zanzhu.pojo.Sponsor" >
+    <id column="sponsor_id" property="sponsorId" jdbcType="INTEGER" />
+    <result column="sponsor_name" property="sponsorName" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="sponsor_address" property="sponsorAddress" jdbcType="VARCHAR" />
+    <result column="sponsor_category" property="sponsorCategory" jdbcType="VARCHAR" />
+    <result column="sponsor_money" property="sponsorMoney" jdbcType="DECIMAL" />
+    <result column="sponsor_attachment" property="sponsorAttachment" jdbcType="VARCHAR" />
+    <result column="sponsor_company_id" property="sponsorCompanyId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zanzhu.pojo.Sponsor" extends="BaseResultMap" >
+    <result column="sponsor_plan" property="sponsorPlan" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sponsor_id, sponsor_name, start_time, end_time, sponsor_address, sponsor_category, 
+    sponsor_money, sponsor_attachment, sponsor_company_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    sponsor_plan
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zanzhu.pojo.SponsorExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sponsor
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zanzhu.pojo.SponsorExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sponsor
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sponsor
+    where sponsor_id = #{sponsorId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sponsor
+    where sponsor_id = #{sponsorId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zanzhu.pojo.SponsorExample" >
+    delete from sponsor
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zanzhu.pojo.Sponsor" >
+    insert into sponsor (sponsor_id, sponsor_name, start_time, 
+      end_time, sponsor_address, sponsor_category, 
+      sponsor_money, sponsor_attachment, sponsor_company_id, 
+      sponsor_plan)
+    values (#{sponsorId,jdbcType=INTEGER}, #{sponsorName,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{sponsorAddress,jdbcType=VARCHAR}, #{sponsorCategory,jdbcType=VARCHAR}, 
+      #{sponsorMoney,jdbcType=DECIMAL}, #{sponsorAttachment,jdbcType=VARCHAR}, #{sponsorCompanyId,jdbcType=INTEGER}, 
+      #{sponsorPlan,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zanzhu.pojo.Sponsor" >
+    insert into sponsor
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sponsorId != null" >
+        sponsor_id,
+      </if>
+      <if test="sponsorName != null" >
+        sponsor_name,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="sponsorAddress != null" >
+        sponsor_address,
+      </if>
+      <if test="sponsorCategory != null" >
+        sponsor_category,
+      </if>
+      <if test="sponsorMoney != null" >
+        sponsor_money,
+      </if>
+      <if test="sponsorAttachment != null" >
+        sponsor_attachment,
+      </if>
+      <if test="sponsorCompanyId != null" >
+        sponsor_company_id,
+      </if>
+      <if test="sponsorPlan != null" >
+        sponsor_plan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sponsorId != null" >
+        #{sponsorId,jdbcType=INTEGER},
+      </if>
+      <if test="sponsorName != null" >
+        #{sponsorName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sponsorAddress != null" >
+        #{sponsorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorCategory != null" >
+        #{sponsorCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorMoney != null" >
+        #{sponsorMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="sponsorAttachment != null" >
+        #{sponsorAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorCompanyId != null" >
+        #{sponsorCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="sponsorPlan != null" >
+        #{sponsorPlan,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zanzhu.pojo.SponsorExample" resultType="java.lang.Integer" >
+    select count(*) from sponsor
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sponsor
+    <set >
+      <if test="record.sponsorId != null" >
+        sponsor_id = #{record.sponsorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sponsorName != null" >
+        sponsor_name = #{record.sponsorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sponsorAddress != null" >
+        sponsor_address = #{record.sponsorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sponsorCategory != null" >
+        sponsor_category = #{record.sponsorCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sponsorMoney != null" >
+        sponsor_money = #{record.sponsorMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sponsorAttachment != null" >
+        sponsor_attachment = #{record.sponsorAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sponsorCompanyId != null" >
+        sponsor_company_id = #{record.sponsorCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sponsorPlan != null" >
+        sponsor_plan = #{record.sponsorPlan,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update sponsor
+    set sponsor_id = #{record.sponsorId,jdbcType=INTEGER},
+      sponsor_name = #{record.sponsorName,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      sponsor_address = #{record.sponsorAddress,jdbcType=VARCHAR},
+      sponsor_category = #{record.sponsorCategory,jdbcType=VARCHAR},
+      sponsor_money = #{record.sponsorMoney,jdbcType=DECIMAL},
+      sponsor_attachment = #{record.sponsorAttachment,jdbcType=VARCHAR},
+      sponsor_company_id = #{record.sponsorCompanyId,jdbcType=INTEGER},
+      sponsor_plan = #{record.sponsorPlan,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sponsor
+    set sponsor_id = #{record.sponsorId,jdbcType=INTEGER},
+      sponsor_name = #{record.sponsorName,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      sponsor_address = #{record.sponsorAddress,jdbcType=VARCHAR},
+      sponsor_category = #{record.sponsorCategory,jdbcType=VARCHAR},
+      sponsor_money = #{record.sponsorMoney,jdbcType=DECIMAL},
+      sponsor_attachment = #{record.sponsorAttachment,jdbcType=VARCHAR},
+      sponsor_company_id = #{record.sponsorCompanyId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zanzhu.pojo.Sponsor" >
+    update sponsor
+    <set >
+      <if test="sponsorName != null" >
+        sponsor_name = #{sponsorName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sponsorAddress != null" >
+        sponsor_address = #{sponsorAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorCategory != null" >
+        sponsor_category = #{sponsorCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorMoney != null" >
+        sponsor_money = #{sponsorMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="sponsorAttachment != null" >
+        sponsor_attachment = #{sponsorAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorCompanyId != null" >
+        sponsor_company_id = #{sponsorCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="sponsorPlan != null" >
+        sponsor_plan = #{sponsorPlan,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where sponsor_id = #{sponsorId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zanzhu.pojo.Sponsor" >
+    update sponsor
+    set sponsor_name = #{sponsorName,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      sponsor_address = #{sponsorAddress,jdbcType=VARCHAR},
+      sponsor_category = #{sponsorCategory,jdbcType=VARCHAR},
+      sponsor_money = #{sponsorMoney,jdbcType=DECIMAL},
+      sponsor_attachment = #{sponsorAttachment,jdbcType=VARCHAR},
+      sponsor_company_id = #{sponsorCompanyId,jdbcType=INTEGER},
+      sponsor_plan = #{sponsorPlan,jdbcType=LONGVARCHAR}
+    where sponsor_id = #{sponsorId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zanzhu.pojo.Sponsor" >
+    update sponsor
+    set sponsor_name = #{sponsorName,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      sponsor_address = #{sponsorAddress,jdbcType=VARCHAR},
+      sponsor_category = #{sponsorCategory,jdbcType=VARCHAR},
+      sponsor_money = #{sponsorMoney,jdbcType=DECIMAL},
+      sponsor_attachment = #{sponsorAttachment,jdbcType=VARCHAR},
+      sponsor_company_id = #{sponsorCompanyId,jdbcType=INTEGER}
+    where sponsor_id = #{sponsorId,jdbcType=INTEGER}
+  </update>
+</mapper>

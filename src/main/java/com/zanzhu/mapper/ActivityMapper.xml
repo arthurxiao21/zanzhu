@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zanzhu.mapper.ActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.zanzhu.pojo.Activity" >
+    <id column="activity_id" property="activityId" jdbcType="INTEGER" />
+    <result column="activity_name" property="activityName" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="activity_address" property="activityAddress" jdbcType="VARCHAR" />
+    <result column="activity_category" property="activityCategory" jdbcType="VARCHAR" />
+    <result column="activity_money" property="activityMoney" jdbcType="DECIMAL" />
+    <result column="activity_attachment" property="activityAttachment" jdbcType="VARCHAR" />
+    <result column="activity_community_id" property="activityCommunityId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zanzhu.pojo.Activity" extends="BaseResultMap" >
+    <result column="activity_plan" property="activityPlan" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    activity_id, activity_name, start_time, end_time, activity_address, activity_category, 
+    activity_money, activity_attachment, activity_community_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    activity_plan
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zanzhu.pojo.ActivityExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zanzhu.pojo.ActivityExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from activity
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from activity
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zanzhu.pojo.ActivityExample" >
+    delete from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zanzhu.pojo.Activity" >
+    insert into activity (activity_id, activity_name, start_time, 
+      end_time, activity_address, activity_category, 
+      activity_money, activity_attachment, activity_community_id, 
+      activity_plan)
+    values (#{activityId,jdbcType=INTEGER}, #{activityName,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{activityAddress,jdbcType=VARCHAR}, #{activityCategory,jdbcType=VARCHAR}, 
+      #{activityMoney,jdbcType=DECIMAL}, #{activityAttachment,jdbcType=VARCHAR}, #{activityCommunityId,jdbcType=INTEGER}, 
+      #{activityPlan,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zanzhu.pojo.Activity" >
+    insert into activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="activityName != null" >
+        activity_name,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="activityAddress != null" >
+        activity_address,
+      </if>
+      <if test="activityCategory != null" >
+        activity_category,
+      </if>
+      <if test="activityMoney != null" >
+        activity_money,
+      </if>
+      <if test="activityAttachment != null" >
+        activity_attachment,
+      </if>
+      <if test="activityCommunityId != null" >
+        activity_community_id,
+      </if>
+      <if test="activityPlan != null" >
+        activity_plan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="activityId != null" >
+        #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="activityName != null" >
+        #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityAddress != null" >
+        #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="activityCategory != null" >
+        #{activityCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="activityMoney != null" >
+        #{activityMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="activityAttachment != null" >
+        #{activityAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="activityCommunityId != null" >
+        #{activityCommunityId,jdbcType=INTEGER},
+      </if>
+      <if test="activityPlan != null" >
+        #{activityPlan,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zanzhu.pojo.ActivityExample" resultType="java.lang.Integer" >
+    select count(*) from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update activity
+    <set >
+      <if test="record.activityId != null" >
+        activity_id = #{record.activityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.activityName != null" >
+        activity_name = #{record.activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endTime != null" >
+        end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.activityAddress != null" >
+        activity_address = #{record.activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.activityCategory != null" >
+        activity_category = #{record.activityCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.activityMoney != null" >
+        activity_money = #{record.activityMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.activityAttachment != null" >
+        activity_attachment = #{record.activityAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.activityCommunityId != null" >
+        activity_community_id = #{record.activityCommunityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.activityPlan != null" >
+        activity_plan = #{record.activityPlan,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update activity
+    set activity_id = #{record.activityId,jdbcType=INTEGER},
+      activity_name = #{record.activityName,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      activity_address = #{record.activityAddress,jdbcType=VARCHAR},
+      activity_category = #{record.activityCategory,jdbcType=VARCHAR},
+      activity_money = #{record.activityMoney,jdbcType=DECIMAL},
+      activity_attachment = #{record.activityAttachment,jdbcType=VARCHAR},
+      activity_community_id = #{record.activityCommunityId,jdbcType=INTEGER},
+      activity_plan = #{record.activityPlan,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update activity
+    set activity_id = #{record.activityId,jdbcType=INTEGER},
+      activity_name = #{record.activityName,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_time = #{record.endTime,jdbcType=TIMESTAMP},
+      activity_address = #{record.activityAddress,jdbcType=VARCHAR},
+      activity_category = #{record.activityCategory,jdbcType=VARCHAR},
+      activity_money = #{record.activityMoney,jdbcType=DECIMAL},
+      activity_attachment = #{record.activityAttachment,jdbcType=VARCHAR},
+      activity_community_id = #{record.activityCommunityId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zanzhu.pojo.Activity" >
+    update activity
+    <set >
+      <if test="activityName != null" >
+        activity_name = #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityAddress != null" >
+        activity_address = #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="activityCategory != null" >
+        activity_category = #{activityCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="activityMoney != null" >
+        activity_money = #{activityMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="activityAttachment != null" >
+        activity_attachment = #{activityAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="activityCommunityId != null" >
+        activity_community_id = #{activityCommunityId,jdbcType=INTEGER},
+      </if>
+      <if test="activityPlan != null" >
+        activity_plan = #{activityPlan,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zanzhu.pojo.Activity" >
+    update activity
+    set activity_name = #{activityName,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      activity_address = #{activityAddress,jdbcType=VARCHAR},
+      activity_category = #{activityCategory,jdbcType=VARCHAR},
+      activity_money = #{activityMoney,jdbcType=DECIMAL},
+      activity_attachment = #{activityAttachment,jdbcType=VARCHAR},
+      activity_community_id = #{activityCommunityId,jdbcType=INTEGER},
+      activity_plan = #{activityPlan,jdbcType=LONGVARCHAR}
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zanzhu.pojo.Activity" >
+    update activity
+    set activity_name = #{activityName,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      activity_address = #{activityAddress,jdbcType=VARCHAR},
+      activity_category = #{activityCategory,jdbcType=VARCHAR},
+      activity_money = #{activityMoney,jdbcType=DECIMAL},
+      activity_attachment = #{activityAttachment,jdbcType=VARCHAR},
+      activity_community_id = #{activityCommunityId,jdbcType=INTEGER}
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </update>
+</mapper>

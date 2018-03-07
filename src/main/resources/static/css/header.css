@@ -1,0 +1,68 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+li {
+	list-style: none;
+}
+
+#header {
+	width: 100%;
+	z-index: 2;
+	position: relative;
+	border-top: #595959 solid 1px;
+	border-bottom: #373737 solid 1px;
+	background: black;
+}
+
+.rays {
+	width: 100%;
+	height: 100px;
+	background: url(../images/rays.png) no-repeat top center;
+}
+
+.navbar-header {
+	float: left;
+	padding: 30px 0px 0px 0px;
+}
+
+.navbar-header .navbar-brand {
+	font-size: 40px;
+}
+
+.navigation {
+	float: left;
+	padding: 24px 0px 0px 0px;
+}
+
+.smoothmenu {
+	float: right;
+}
+
+.smoothmenu ul {
+	z-index: 999;
+	margin: 0;
+	padding: 0px 0px 0px 40px;
+	list-style-type: none;
+	float: right;
+	font-size: 16px;
+}
+
+.smoothmenu ul li {
+	padding: 7px 25px 0px 25px;
+	height: 25px;
+	text-decoration: none;
+	font-size: 16px;
+	border-radius: 2px;
+	font-family: 'Patua One', sans-serif;
+}
+
+.smoothmenu ul li a {
+	color: #fff !important;
+}
+
+.nav .active a, .smoothmenu ul li a:hover {
+	background-color: #a91d3b !important;
+	color: #FFF;
+}

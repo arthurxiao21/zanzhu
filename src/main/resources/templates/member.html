@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>首页-赞助信息网</title>
+<link href="http://localhost:8080/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="http://localhost:8080/css/member.css" rel="stylesheet"
+	type="text/css" />
+<link href="http://localhost:8080/css/header.css" rel="stylesheet"
+	type="text/css" />
+<link href="http://localhost:8080/css/footer.css" rel="stylesheet"
+	type="text/css" />
+</head>
+<body>
+	<script src="http://localhost:8080/js/jquery-2.1.3.min.js"
+		type="application/javascript"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="http://localhost:8080/js/bootstrap.min.js"
+		type="application/javascript"></script>
+	<div id="out_wrapper">
+		<!--导航栏-->
+		<div th:include="navi::navi"></div>
+
+
+		<div class="out_wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-3 col-md-2 sidebar">
+						<ul class="nav nav-sidebar well">
+							<li class="active"><a href="#">个人主页<span class="sr-only">(current)</span></a></li>
+							<li><a href="http://localhost:8080/sponsor/publish" th:if="${user.userRole=='0'}">发布赞助</a></li>
+							<li><a href="http://localhost:8080/activity/publish" th:if="${user.userRole=='1'}" >发布活动</a></li>
+							<li><a
+								th:href="@{http://localhost:8080/member/{id}/alter(id=${user.userId})}">修改信息</a></li>
+							<li><a href="">安全认证</a></li>
+							<li><a href="">修改密码</a></li>
+							<li><a href="">维权</a></li>
+							<li><a href="">反馈</a></li>
+						</ul>
+					</div>
+
+					<div
+						class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"
+						style="margin: 0px;">
+						<div class="info_wrapper panel panel-default">
+							<div class="panel-heading">信息</div>
+							<div class="panel-body">
+								<div class="avatar_wrapper">
+									<img th:src="@{http://localhost:8080/images/avatar.jpg}"
+										th:if="${user.avatar==null}" class="img-circle" /> <img
+										th:src="@{http://localhost:8080/upload/avatar/{file}(file=${user.avatar})}"
+										th:if="${user.avatar!=null}" class="img-circle">
+								</div>
+									<div class="word_wrapper" th:if="${user.userRole=='0'}">
+										<div class="word_wrapper_in">
+											<span class="label label-danger">账号（唯一ID）:</span>
+											<h3 th:text="${user.userId}">10086</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">名称:</span>
+											<h3 th:text="${company.companyName}">阿里巴巴</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">联系人名称:</span>
+											<h3 th:text="${user.contactName}">马云</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">联系人电话:</span>
+											<h3 th:text="${user.contactPhone}">135xxxxxxx</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">联系人性别:</span>
+											<h3 th:text="${user.contactSex}">男</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">企业性质:</span>
+											<h3 th:text="${company.companyKind}">互联网</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">企业规模:</span>
+											<h3 th:text="${company.companySize}">20000</h3>
+										</div>
+									</div>
+									<div class="word_wrapper" th:if="${user.userRole=='1'}">
+										<div class="word_wrapper_in">
+											<span class="label label-danger">账号（唯一ID）:</span>
+											<h3 th:text="${user.userId}">10086</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">名称:</span>
+											<h3 th:text="${community.communityName}">阿里巴巴</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">联系人名称:</span>
+											<h3 th:text="${user.contactName}">马云</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">联系人电话:</span>
+											<h3 th:text="${user.contactPhone}">135xxxxxxx</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">联系人性别:</span>
+											<h3 th:text="${user.contactSex}">男</h3>
+										</div>
+										<div class="word_wrapper_in">
+											<span class="label label-danger">学校:</span>
+											<h3 th:text="${community.communitySchool}">互联网</h3>
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div th:include="footer::#footer" id="footer"></div>
+	</div>
+</body>
+</html>

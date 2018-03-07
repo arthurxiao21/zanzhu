@@ -1,0 +1,105 @@
+/*
+=======================================================================
+	Footer Rules
+=======================================================================
+*/
+#footer {
+    width:100%;
+    height:122px;
+    background:url(../images/footer.gif) repeat-x;
+}
+#footer .footer-rays{
+    width:100%;
+    height:122px;
+    background:url(../images/rays-foot.png) no-repeat 0px 0px;
+}
+#footer .foot-navi-coopyrights{
+    
+    width:700px;
+    padding:20px 0px 0px 0px;
+}
+.foot-navi-coopyrights .footlogo-nav{
+    float:left;
+    width:100%;
+}
+.foot-navi-coopyrights .footlogo-nav .footlogo{
+    float:left;
+}
+.foot-navi-coopyrights .footlogo-nav .footnav{
+    float:left;
+}
+.footlogo-nav .footnav ul{
+    float:left;
+    padding:8px 0px 0px 0px;
+}
+.footlogo-nav .footnav ul li{
+    float:left;
+    padding:25px 0px 0px 15px;
+}
+.footlogo-nav .footnav ul li a{
+    float:left;
+    color:#FFF;
+    font-size:20px;
+    padding: 0px 20px 20px 0px;
+}
+.copyrights{
+    float:left;
+    color:#FFF;
+    font-size:12px;
+    padding:10px 0px 0px 0px;
+}
+#footer .followus{
+    float:right;
+    padding:20px 0px 0px 0px;
+}
+#footer .follow{
+    float:right;
+    padding:0px 10px 0px 0px;
+}
+#footer .follow h5{
+    float:left;
+    padding:0px 0px 10px 0px;
+}
+#footer .follow ul{
+    float:left;
+    clear:both;
+}
+#footer .follow ul li{
+    float:left;
+    padding-right:5px;
+}
+#footer .follow ul li a{
+    float:left;
+}
+#footer .gotop{
+    float:right;
+    margin:25px 0px 0px 0px;
+    padding:0px 0px 0px 14px;
+    background:url(../images/sep.png) no-repeat left center;
+}
+#footer .gotop a{
+    float:left;
+    width:35px;
+    height:36px;
+    position:relative;
+    background:url(../images/gotop.png) no-repeat center center;
+}
+#footer .gotop span{
+    display:none;
+    width:68px;
+    height:25px;
+    padding:5px 0px 0px 0px;
+    text-align:center;
+    position:absolute;
+    margin:-30px 0px 0px -50px;
+    color:#FFF;
+    font-size:10px;
+    font-family: 'Patua One', sans-serif;
+    background:url(../images/bubble.png) no-repeat 0px 0px;
+}
+#footer .gotop:hover span{
+    display:inline-block;
+}
+.foot-navi-coopyrights{
+	margin: 0px auto;
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>注册-社团赞助网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!-- js files -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/validator.min.js"></script>
+    <!-- /js files -->
+
+    <!-- fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Muli:300,400" rel="stylesheet">
+    <!-- /fonts -->
+    <!-- css -->
+    <link href="css/bootstrap.css" rel="stylesheet" type='text/css' media="all" />
+    <link href="css/bootstrap-switch.css" rel="stylesheet" type='text/css' media="all" />
+    <link href="css/register.css" rel="stylesheet" type='text/css' media="all" />
+    <link href="css/header.css" rel="stylesheet" type="text/css"/>
+    <link href="css/footer.css" rel="stylesheet" type="text/css"/>
+    <!-- /css -->
+
+</head>
+<body>
+<script type="application/javascript">
+    $(document).ready(function () {
+        $('#mySwitch input').bootstrapSwitch({
+            onText:'企业',
+            offText:'社团',
+            onColor:'danger',
+            offColor:'info',
+            onSwitchChange:function(event,state){
+                if(state==true){
+                    $(this).val("1");
+                    console.log("开启");
+                    $("form").attr("action","/registerComapny");
+                    $("label[for=firstname]").text("企业名称");
+                }else{
+                    $(this).val("2");
+                    console.log("关闭");
+                    $("form").attr("action","/registerCommunity");
+                    $("label[for=firstname]").text("社团名称");
+                }
+            }
+        });
+
+    });
+</script>
+<!--导航栏-->
+<nav class="navbar navbar-default " role="navigation" id="header">
+    <div class="container-fluid rays ">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">赞助网</a>
+        </div>
+        <div class="navigation">
+            <div class="smoothmenu">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/index">主页</a></li>
+                    <li><a href="/activity/0-0-0-0">社团活动</a></li>
+                    <li><a href="/sponsor/0-0-0-0">企业赞助</a></li>
+                    <li><a href="/register">登陆/注册</a></li>
+                    <li><a href="/contact">联系我们</a></li>
+                    <li><a href="/member/10000000"><img style="width: 40px;height:40px" class="img-circle" src="images/avatar.jpg" alt="头像"/>
+                        我的详情</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="form_top">
+    <div class="form_title">
+        <h3>选择类型</h3>
+    </div>
+    <div id ="mySwitch" class="switch switch-large" data-on="danger" data-off="primary" data-on-label="企业" data-off-label="社团">
+        <input type="checkbox" checked />
+    </div>
+</div>
+<div class="content-agileits">
+    <form action="/registerCompany" method="post" data-toggle="validator" role="form">
+        <div class="form-group  w3 w3l">
+            <label for="firstname" class="control-label">企业名称</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="名称" data-error="Enter Your Name" required>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group agileits w3">
+            <label for="lastname" class="control-label">联系人姓名</label>
+            <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="联系人姓名" data-error="Enter Your contact Name" required>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group w3l agileinfo wthree w3-agileits">
+            <label for="inputEmail" class="control-label">联系人Email</label>
+            <input type="email" class="form-control" id="contact_email" name="contact_email" placeholder="Email" data-error="This email address is invalid" required>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group agileinfo wthree w3-agileits agile">
+            <label for="Phone" class="control-label">联系人电话号码</label>
+            <input type="text" class="form-control" id="contact_phone" name="contact_phone" placeholder="Phone" data-error="Enter Your Phone Number" required>
+            <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group agile  w3-agile">
+            <label for="inputPassword" class="control-label">Password</label>
+            <div class="form-inline row">
+                <div class="form-group col-sm-6 ">
+                    <input type="password" data-minlength="6" class="form-control" id="user_password" name="user_password" placeholder="Password" required>
+                    <div class="help-block">Minimum of 6 characters</div>
+                </div>
+                <div class="form-group col-sm-6 w3-agile">
+                    <input type="password" class="form-control" id="PasswordConfirm" data-match="#user_password" data-match-error="Whoops, these don't match" placeholder="Confirm Password" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg">提交</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
