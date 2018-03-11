@@ -192,77 +192,9 @@
                             <dd class="fl ">
                                 <a href="http://localhost:8080/activity/1-0-0-0.html">全部</a>
                             </dd>
-                            <dd class="fl first">
-                                <a href="http://localhost:8080/activity/1-37-0-0.html">
-                                    东城区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-38-0-0.html">
+                            <dd class="fl "   th:each="city,cityStat:${address2}" >
+                                <a  th:text="${city}" th:href="@{'http://localhost:8080/sponsor/'+${paramBean.first}+'-'+${cityStat.index}+'-'+${paramBean.third}+'-'+${paramBean.fourth}}">
                                     西城区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-39-0-0.html">
-                                    崇文区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-40-0-0.html">
-                                    宣武区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-41-0-0.html">
-                                    朝阳区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-42-0-0.html">
-                                    丰台区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-43-0-0.html">
-                                    石景山区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-44-0-0.html">
-                                    海淀区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-45-0-0.html">
-                                    门头沟区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-46-0-0.html">
-                                    房山区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-47-0-0.html">
-                                    通州区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-48-0-0.html">
-                                    顺义区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-49-0-0.html">
-                                    昌平区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-50-0-0.html">
-                                    大兴区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-51-0-0.html">
-                                    怀柔区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-52-0-0.html">
-                                    平谷区 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-53-0-0.html">
-                                    密云县 </a>
-                            </dd>
-                            <dd class="fl ">
-                                <a href="http://localhost:8080/activity/1-54-0-0.html">
-                                    延庆县 </a>
                             </dd>
                         </dl>
                     </li>

@@ -3,6 +3,8 @@ package com.zanzhu.controller;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -45,9 +47,9 @@ public class SponsorController {
 	SponsorMapper sponsorMapper;
 	@Autowired
 	UserMapper userMapper;
-	
-	@RequestMapping(value="/sponsor")
-	public String defaultSponsor(){
+
+	@RequestMapping(value = "/sponsor")
+	public String defaultSponsor() {
 		return "redirect:/sponsor/0-0-0-0";
 	}
 
@@ -184,8 +186,10 @@ public class SponsorController {
 		map.put("paramBean", paramBean);
 		map.put("sponsorList", splitList);
 		map.put("pageBean", pageBean);
-		if (first != 0)
-			map.put("address2", ConditionUtils.ADDRESS2[first - 1]);
+		if (first != 0) {
+			map.put("address2", new ArrayList<String>(Arrays.asList(ConditionUtils.ADDRESS2[first-1])));
+
+		}
 		return "sponsor";
 	}
 

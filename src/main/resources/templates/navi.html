@@ -7,7 +7,7 @@
 		<nav class="navbar navbar-default " role="navigation" id="header">
 			<div class="container-fluid rays ">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">赞助网</a>
+					<a class="navbar-brand" href="http://localhost:8080/index">赞助网</a>
 				</div>
 				<div class="navigation">
 					<div class="smoothmenu">
@@ -15,7 +15,8 @@
 							<li class="active"><a href="http://localhost:8080/index">主页</a></li>
 							<li><a href="http://localhost:8080/activity">社团活动</a></li>
 							<li><a href="http://localhost:8080/sponsor">企业赞助</a></li>
-							<li th:if="${user==null}"><a th:href="@{http://localhost:8080/login}">登陆/注册</a></li>
+							<li th:if="${user==null}"><a th:href="@{http://localhost:8080/login}">注册</a></li>
+							<li th:if="${user==null}"><a th:href="@{http://localhost:8080/login}">登陆</a></li>
 							<li th:if="${user!=null}"><a th:href="@{http://localhost:8080/logout}">登出</a></li>
 							<li><a href="/contact">联系我们</a></li>
 							<li th:if="${user==null}"><a th:href="@{http://localhost:8080/login}"><img
